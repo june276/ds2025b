@@ -1,10 +1,15 @@
-s1 = list()
-s1.append("data structure") # push
-s1.append("database") # push
-print(len(s1))  # size
-print(s1[-1])   # peek
-print(s1)
-print(s1.pop())
-print(s1)
-print(s1.pop())
-print(s1)
+def check_parentheses(expression: str) -> bool : # type hint
+    stack = []
+    for letter in expression:
+        if letter == "(":
+            stack.append(letter)
+        if letter == ")":
+            if len(stack) == 0:
+                return False
+            else: stack.pop()
+    return len(stack) == 0
+
+print(check_parentheses("(2+3)"))
+print(check_parentheses("(2+(3+9))"))
+print(check_parentheses("(2+(3+9)"))
+print(check_parentheses(")(2+(3+9))"))
